@@ -1,0 +1,10 @@
+{
+  "name": "vacation-rental-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/vacation-rental-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["vacation-rental"],
+  "// targets": "to see all targets run: nx show project vacation-rental-e2e --web",
+  "targets": {}
+}
