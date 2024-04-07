@@ -1,4 +1,14 @@
-import { Button, Card, Grid, CardActionArea, createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import {
+  Button,
+  Card,
+  Grid,
+  CardActionArea,
+  createTheme,
+  ThemeProvider,
+  CssBaseline,
+  ToggleButtonGroup,
+  ToggleButton,
+} from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
@@ -19,6 +29,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import WbSunnyRoundedIcon from '@mui/icons-material/WbSunnyRounded';
 import ModeNightRoundedIcon from '@mui/icons-material/ModeNightRounded';
 import getLPTheme from './getLPTheme';
+import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 
 interface ToggleColorModeProps {
   mode: PaletteMode;
@@ -41,6 +52,49 @@ function ToggleColorMode({ mode, toggleColorMode }: ToggleColorModeProps) {
           <ModeNightRoundedIcon fontSize="small" />
         )}
       </Button>
+    </Box>
+  );
+}
+
+interface ToggleCustomThemeProps {
+  showCustomTheme: Boolean;
+  toggleCustomTheme: () => void;
+}
+
+function ToggleCustomTheme({
+  showCustomTheme,
+  toggleCustomTheme,
+}: ToggleCustomThemeProps) {
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100dvw',
+        position: 'fixed',
+        bottom: 24,
+      }}
+    >
+      <ToggleButtonGroup
+        color="primary"
+        exclusive
+        value={showCustomTheme}
+        onChange={toggleCustomTheme}
+        aria-label="Platform"
+        sx={{
+          backgroundColor: 'background.default',
+          '& .Mui-selected': {
+            pointerEvents: 'none',
+          },
+        }}
+      >
+        <ToggleButton value>
+          <AutoAwesomeRoundedIcon sx={{ fontSize: '20px', mr: 1 }} />
+          Custom theme
+        </ToggleButton>
+        <ToggleButton value={false}>Material Design 2</ToggleButton>
+      </ToggleButtonGroup>
     </Box>
   );
 }
@@ -81,12 +135,10 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
     <div>
       <AppBar
         position="fixed"
-        sx={{
-          boxShadow: 0,
-          bgcolor: 'transparent',
-          backgroundImage: 'none',
-          mt: 2,
-        }}
+        color="default"
+        // sx={{
+        //   boxShadow: 0,
+        // }}
       >
         <Container maxWidth="lg">
           <Toolbar
@@ -96,19 +148,6 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
               alignItems: 'center',
               justifyContent: 'space-between',
               flexShrink: 0,
-              borderRadius: '999px',
-              bgcolor:
-                theme.palette.mode === 'light'
-                  ? 'rgba(255, 255, 255, 0.4)'
-                  : 'rgba(0, 0, 0, 0.4)',
-              backdropFilter: 'blur(24px)',
-              maxHeight: 40,
-              border: '1px solid',
-              borderColor: 'divider',
-              boxShadow:
-                theme.palette.mode === 'light'
-                  ? `0 0 1px rgba(85, 166, 246, 0.1), 1px 1.5px 2px -1px rgba(85, 166, 246, 0.15), 4px 4px 12px -2.5px rgba(85, 166, 246, 0.15)`
-                  : '0 0 1px rgba(2, 31, 59, 0.7), 1px 1.5px 2px -1px rgba(2, 31, 59, 0.65), 4px 4px 12px -2.5px rgba(2, 31, 59, 0.65)',
             })}
           >
             <Box
@@ -282,8 +321,6 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
 }
 
 export function App() {
-
-
   const [mode, setMode] = React.useState<PaletteMode>('light');
   const [showCustomTheme, setShowCustomTheme] = React.useState(true);
   const LPtheme = createTheme(getLPTheme(mode));
@@ -296,8 +333,6 @@ export function App() {
   const toggleCustomTheme = () => {
     setShowCustomTheme((prev) => !prev);
   };
-
-
 
   return (
     <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
@@ -353,6 +388,10 @@ export function App() {
           ]}
         />
         <Button>cool</Button>
+        <ToggleCustomTheme
+          showCustomTheme={showCustomTheme}
+          toggleCustomTheme={toggleCustomTheme}
+        />
       </main>
     </ThemeProvider>
   );
