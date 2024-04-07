@@ -1,21 +1,11 @@
-import {
-  Button,
-  Card,
-  Grid,
-  CardActionArea,
-  createTheme,
-  ThemeProvider,
-  CssBaseline,
-} from '@mui/material';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
+import { Button, createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 import * as React from 'react';
 import { PaletteMode } from '@mui/material';
 
 import getLPTheme from './getLPTheme';
 import { AppAppBar } from './AppAppBar';
 import { ToggleCustomTheme } from './ToggleCustomTheme';
+import { ProductGrid } from './ProductGrid';
 
 export function App() {
   const [mode, setMode] = React.useState<PaletteMode>('light');
@@ -95,43 +85,3 @@ export function App() {
 }
 
 export default App;
-
-interface Product {
-  id: number;
-  image: string;
-  title: string;
-  description: string;
-}
-
-interface ProductGridProps {
-  products: Product[];
-}
-
-const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
-  return (
-    <Grid container spacing={2}>
-      {products.map((product) => {
-        return (
-          <Grid item xs={3} key={product.id}>
-            <Card variant="outlined">
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image={product.image}
-                  alt={product.title}
-                />
-                <CardContent>
-                  <Typography variant="subtitle1">{product.title}</Typography>
-                  <Typography color="text.secondary">
-                    {product.description}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-        );
-      })}
-    </Grid>
-  );
-};
