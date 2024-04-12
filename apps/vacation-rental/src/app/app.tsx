@@ -1,4 +1,10 @@
-import { Button, createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import {
+  Button,
+  createTheme,
+  ThemeProvider,
+  CssBaseline,
+  Container,
+} from '@mui/material';
 import * as React from 'react';
 import { PaletteMode } from '@mui/material';
 
@@ -6,6 +12,7 @@ import getLPTheme from './getLPTheme';
 import { AppAppBar } from './AppAppBar';
 import { ToggleCustomTheme } from './ToggleCustomTheme';
 import { ProductGrid } from './ProductGrid';
+import { Main } from './Main';
 
 export function App() {
   const [mode, setMode] = React.useState<PaletteMode>('light');
@@ -27,59 +34,61 @@ export function App() {
       {/* <header>header goes here</header> */}
       <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
 
-      <main>
-        <ProductGrid
-          products={[
-            {
-              id: 1,
-              image:
-                'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
-              title: 'Product 1',
-              description: 'This is a cool product',
-            },
-            {
-              id: 2,
-              image:
-                'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
-              title: 'Product 2',
-              description: 'This is another cool product',
-            },
-            {
-              id: 3,
-              image:
-                'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
-              title: 'Product 3',
-              description: 'This is a cool product too',
-            },
-            {
-              id: 4,
-              image:
-                'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
-              title: 'Product 4',
-              description: 'This is a cool product as well',
-            },
-            {
-              id: 5,
-              image:
-                'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
-              title: 'Product 5',
-              description: 'This is a cool product',
-            },
-            {
-              id: 6,
-              image:
-                'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
-              title: 'Product 6',
-              description: 'This is a cool product',
-            },
-          ]}
-        />
-        <Button>cool</Button>
-        <ToggleCustomTheme
-          showCustomTheme={showCustomTheme}
-          toggleCustomTheme={toggleCustomTheme}
-        />
-      </main>
+      <Main>
+        <Container maxWidth="xl">
+          <ProductGrid
+            products={[
+              {
+                id: 1,
+                image:
+                  'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
+                title: 'Product 1',
+                description: 'This is a cool product',
+              },
+              {
+                id: 2,
+                image:
+                  'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
+                title: 'Product 2',
+                description: 'This is another cool product',
+              },
+              {
+                id: 3,
+                image:
+                  'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
+                title: 'Product 3',
+                description: 'This is a cool product too',
+              },
+              {
+                id: 4,
+                image:
+                  'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
+                title: 'Product 4',
+                description: 'This is a cool product as well',
+              },
+              {
+                id: 5,
+                image:
+                  'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
+                title: 'Product 5',
+                description: 'This is a cool product',
+              },
+              {
+                id: 6,
+                image:
+                  'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
+                title: 'Product 6',
+                description: 'This is a cool product',
+              },
+            ]}
+          />
+          <Button>cool</Button>
+          <ToggleCustomTheme
+            showCustomTheme={showCustomTheme}
+            toggleCustomTheme={toggleCustomTheme}
+          />
+        </Container>
+      </Main>
     </ThemeProvider>
   );
 }
