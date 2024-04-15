@@ -3,15 +3,39 @@ import {
   ThemeProvider,
   CssBaseline,
   Container,
+  Box,
 } from '@mui/material';
 import * as React from 'react';
 import { PaletteMode } from '@mui/material';
-
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import StarIcon from '@mui/icons-material/Star';
 import getLPTheme from './getLPTheme';
 import { AppAppBar } from './AppAppBar';
 import { ToggleCustomTheme } from './ToggleCustomTheme';
 import { ProductGrid } from './ProductGrid';
 import { Main } from './Main';
+import { NavItem, Navigation } from './Navigation';
+
+const items: NavItem[] = [
+  {
+    icon: InboxIcon,
+    text: 'Inbox',
+    subItems: [
+      {
+        icon: StarIcon,
+        text: 'Starred',
+      },
+      {
+        icon: StarIcon,
+        text: 'Important',
+      },
+    ],
+  },
+  {
+    icon: StarIcon,
+    text: 'Starred',
+  },
+];
 
 export function App() {
   const [mode, setMode] = React.useState<PaletteMode>('light');
@@ -35,6 +59,13 @@ export function App() {
 
       <Main>
         <Container maxWidth="xl">
+          <Box
+            sx={{
+              maxWidth: 360,
+            }}
+          >
+            <Navigation items={items} />
+          </Box>
           <ProductGrid
             products={[
               {
