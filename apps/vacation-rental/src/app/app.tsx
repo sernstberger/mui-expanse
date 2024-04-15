@@ -1,5 +1,4 @@
 import {
-  Button,
   createTheme,
   ThemeProvider,
   CssBaseline,
@@ -31,7 +30,7 @@ export function App() {
   return (
     <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
       <CssBaseline />
-      {/* <header>header goes here</header> */}
+
       <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
 
       <Main>
@@ -82,7 +81,7 @@ export function App() {
               },
             ]}
           />
-          <Button>cool</Button>
+
           <ToggleCustomTheme
             showCustomTheme={showCustomTheme}
             toggleCustomTheme={toggleCustomTheme}
