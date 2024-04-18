@@ -16,6 +16,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import WbSunnyRoundedIcon from '@mui/icons-material/WbSunnyRounded';
 import ModeNightRoundedIcon from '@mui/icons-material/ModeNightRounded';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import StarIcon from '@mui/icons-material/Star';
+import { Navigation } from './Navigation';
 
 interface ToggleColorModeProps {
   mode: PaletteMode;
@@ -109,48 +112,6 @@ export function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                 style={logoStyle}
                 alt="logo of sitemark"
               />
-              <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                <MenuItem
-                  onClick={() => scrollToSection('features')}
-                  sx={{ py: '6px', px: '12px' }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Features
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection('testimonials')}
-                  sx={{ py: '6px', px: '12px' }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Testimonials
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection('highlights')}
-                  sx={{ py: '6px', px: '12px' }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Highlights
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection('pricing')}
-                  sx={{ py: '6px', px: '12px' }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Pricing
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection('faq')}
-                  sx={{ py: '6px', px: '12px' }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    FAQ
-                  </Typography>
-                </MenuItem>
-              </Box>
             </Box>
             <Box
               sx={{
@@ -213,21 +174,30 @@ export function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                       toggleColorMode={toggleColorMode}
                     />
                   </Box>
-                  <MenuItem onClick={() => scrollToSection('features')}>
-                    Features
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('testimonials')}>
-                    Testimonials
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('highlights')}>
-                    Highlights
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('pricing')}>
-                    Pricing
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('faq')}>
-                    FAQ
-                  </MenuItem>
+                  {/* <Navigation items={items} /> */}
+                  <Navigation
+                    items={[
+                      {
+                        icon: InboxIcon,
+                        text: 'Inbox',
+                        subItems: [
+                          {
+                            icon: StarIcon,
+                            text: 'Starred',
+                          },
+                          {
+                            icon: StarIcon,
+                            text: 'Important',
+                          },
+                        ],
+                      },
+                      {
+                        icon: StarIcon,
+                        text: 'Starred',
+                      },
+                    ]}
+                  />
+
                   <Divider />
                   <MenuItem>
                     <Button

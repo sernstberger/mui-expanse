@@ -19,7 +19,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
       {products.map((product) => {
         return <ProductGridItem key={product.id} {...product} />;
       })}
-      <Grid item xs={12}>
+      <Grid item xs={12} display="flex" justifyContent="center">
         <ProductGridPagination count={5} />
       </Grid>
     </Grid>

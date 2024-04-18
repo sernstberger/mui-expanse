@@ -102,22 +102,23 @@ export function App() {
 
       <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
 
+      {/* <Box
+        sx={{
+          maxWidth: 360,
+        }}
+      >
+        <Navigation items={items} />
+      </Box> */}
+
       <Main>
         <Container maxWidth="xl">
-          <Box
-            sx={{
-              maxWidth: 360,
-            }}
-          >
-            <Navigation items={items} />
-          </Box>
           <ProductGrid products={products} />
-
-          <ToggleCustomTheme
-            showCustomTheme={showCustomTheme}
-            toggleCustomTheme={toggleCustomTheme}
-          />
         </Container>
+
+        <ToggleCustomTheme
+          showCustomTheme={showCustomTheme}
+          toggleCustomTheme={toggleCustomTheme}
+        />
       </Main>
     </ThemeProvider>
   );
