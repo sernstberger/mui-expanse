@@ -3,7 +3,6 @@ import {
   ThemeProvider,
   CssBaseline,
   Container,
-  Box,
 } from '@mui/material';
 import * as React from 'react';
 import { PaletteMode } from '@mui/material';
@@ -15,6 +14,7 @@ import { ToggleCustomTheme } from './ToggleCustomTheme';
 import { ProductGrid } from './ProductGrid';
 import { Main } from './Main';
 import { NavItem, Navigation } from './Navigation';
+import { Route, Routes } from 'react-router-dom';
 
 const items: NavItem[] = [
   {
@@ -99,6 +99,20 @@ export function App() {
   return (
     <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
       <CssBaseline />
+
+      <Routes>
+        {/* <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="dashboard" element={<Dashboard />} />
+
+          <Route path="*" element={<div>nope</div>} />
+        </Route> */}
+
+        <Route index element={<div>home</div>} />
+
+        <Route path="*" element={<div>nope</div>} />
+      </Routes>
 
       <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
 
