@@ -2,9 +2,6 @@ import { Grid, Pagination, PaginationProps } from '@mui/material';
 import * as React from 'react';
 import { ProductGridItem } from './ProductGridItem';
 
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
-
 interface Product {
   id: number;
   image: string;
@@ -39,10 +36,5 @@ export function ProductGridPagination({ count }: ProductGridPaginationProps) {
     setPage(value);
   };
 
-  return (
-    <Stack spacing={2}>
-      <Typography>Page: {page}</Typography>
-      <Pagination count={count} page={page} onChange={handleChange} />
-    </Stack>
-  );
+  return <Pagination count={count} page={page} onChange={handleChange} />;
 }
