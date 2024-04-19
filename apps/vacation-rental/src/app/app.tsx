@@ -3,6 +3,10 @@ import {
   ThemeProvider,
   CssBaseline,
   Container,
+  Typography,
+  Grid,
+  Card,
+  Button,
 } from '@mui/material';
 import * as React from 'react';
 import { PaletteMode } from '@mui/material';
@@ -129,7 +133,30 @@ export function App() {
           element={
             <Main>
               <Container maxWidth="xl">
-                <div>listing goes here instead</div>
+                <Typography variant="h4">Product 4</Typography>
+                {/* {
+    id: 4,
+    image:
+      'https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop',
+    title: 'Product 4',
+    description: 'This is a cool product as well',
+  }, */}
+                <img
+                  src="https://images.unsplash.com/photo-1711699486799-901668a8d720?q=80&w=3000&auto=format&fit=crop"
+                  alt="Product 4"
+                  style={{ maxWidth: '100%' }}
+                />
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={8}>
+                    <Typography variant="h4">Entire place in Indy</Typography>
+                  </Grid>
+                  <Grid item xs={12} md={4}>
+                    <Card>
+                      <Typography variant="h5">Reserve</Typography>
+                      <Button>Reserve</Button>
+                    </Card>
+                  </Grid>
+                </Grid>
               </Container>
 
               <ToggleCustomTheme
