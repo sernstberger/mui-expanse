@@ -109,7 +109,36 @@ export function App() {
           <Route path="*" element={<div>nope</div>} />
         </Route> */}
 
-        <Route index element={<div>home</div>} />
+        <Route
+          index
+          element={
+            <Main>
+              <Container maxWidth="xl">
+                <ProductGrid products={products} />
+              </Container>
+
+              <ToggleCustomTheme
+                showCustomTheme={showCustomTheme}
+                toggleCustomTheme={toggleCustomTheme}
+              />
+            </Main>
+          }
+        />
+        <Route
+          path="listing"
+          element={
+            <Main>
+              <Container maxWidth="xl">
+                <div>listing goes here instead</div>
+              </Container>
+
+              <ToggleCustomTheme
+                showCustomTheme={showCustomTheme}
+                toggleCustomTheme={toggleCustomTheme}
+              />
+            </Main>
+          }
+        />
 
         <Route path="*" element={<div>nope</div>} />
       </Routes>
@@ -123,17 +152,6 @@ export function App() {
       >
         <Navigation items={items} />
       </Box> */}
-
-      <Main>
-        <Container maxWidth="xl">
-          <ProductGrid products={products} />
-        </Container>
-
-        <ToggleCustomTheme
-          showCustomTheme={showCustomTheme}
-          toggleCustomTheme={toggleCustomTheme}
-        />
-      </Main>
     </ThemeProvider>
   );
 }

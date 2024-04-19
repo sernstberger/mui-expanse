@@ -21,7 +21,7 @@ export const ProductGridItem: React.FC<ProductGridItemProps> = ({
   return (
     <Grid item xs={6} sm={4} md={3} key={id}>
       <Card variant="outlined">
-        <CardActionArea component={Link} to="/cool">
+        <CardActionArea component={Link} to="/listing">
           <CardMedia component="img" height="140" image={image} alt={title} />
           <CardContent>
             <Typography variant="subtitle1">{title}</Typography>
