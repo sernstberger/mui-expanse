@@ -20,7 +20,7 @@ import { ToggleCustomTheme } from './ToggleCustomTheme';
 import { ProductGrid } from './ProductGrid';
 import { Main } from './Main';
 import { NavItem, Navigation } from './Navigation';
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import ImageList from './ImageList';
 
 const items: NavItem[] = [
@@ -107,12 +107,12 @@ const images = [
   {
     img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
     title: 'Coffee',
-    cols: 2,
+    // cols: 2,
   },
   {
     img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
     title: 'Hats',
-    cols: 2,
+    // cols: 2,
   },
   {
     img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
@@ -248,7 +248,65 @@ export function App() {
                   <Grid item xs={12} md={4}>
                     <Card>
                       <Typography variant="h5">Reserve</Typography>
-                      <Button variant="contained">Reserve</Button>
+                      <Button
+                        variant="contained"
+                        component={Link}
+                        to="/reserve"
+                      >
+                        Reserve
+                      </Button>
+                    </Card>
+                  </Grid>
+                </Grid>
+              </Container>
+
+              <ToggleCustomTheme
+                showCustomTheme={showCustomTheme}
+                toggleCustomTheme={toggleCustomTheme}
+              />
+            </Main>
+          }
+        />
+
+        <Route
+          path="reserve"
+          element={
+            <Main>
+              <Container maxWidth="xl">
+                <Stack
+                  spacing={2}
+                  direction="row"
+                  justifyContent="space-between"
+                >
+                  <Typography>Product 4</Typography>
+                </Stack>
+
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={8}>
+                    <Typography variant="h4">Entire place in Indy</Typography>
+                    <Typography variant="h6">
+                      4 guests · 2 bedrooms · 2 beds · 1 bath
+                    </Typography>
+                    <Divider />
+                    <Typography variant="h5">Amenities</Typography>
+                    <Typography variant="body1">Wifi</Typography>
+                    <Typography variant="body1">Kitchen</Typography>
+                    <Typography variant="body1">Free parking</Typography>
+                    <Typography variant="body1">Washer</Typography>
+                    <Typography variant="body1">Dryer</Typography>
+
+                    <Divider />
+                  </Grid>
+                  <Grid item xs={12} md={4}>
+                    <Card>
+                      <Typography variant="h5">Reserve</Typography>
+                      <Button
+                        variant="contained"
+                        component={Link}
+                        to="/reserve"
+                      >
+                        Reserve
+                      </Button>
                     </Card>
                   </Grid>
                 </Grid>

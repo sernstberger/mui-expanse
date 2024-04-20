@@ -18,7 +18,7 @@ export default function ImageList({ images }: any) {
       cols={4}
       rowHeight={200}
     >
-      {images.map((item: any) => (
+      {images.slice(0, 5).map((item: any) => (
         <ImageListItem
           key={item.img}
           cols={item.cols || 1}
