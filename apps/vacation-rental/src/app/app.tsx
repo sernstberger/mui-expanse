@@ -288,25 +288,16 @@ export function App() {
                       4 guests · 2 bedrooms · 2 beds · 1 bath
                     </Typography>
                     <Divider />
-                    <Typography variant="h5">Amenities</Typography>
-                    <Typography variant="body1">Wifi</Typography>
-                    <Typography variant="body1">Kitchen</Typography>
-                    <Typography variant="body1">Free parking</Typography>
-                    <Typography variant="body1">Washer</Typography>
-                    <Typography variant="body1">Dryer</Typography>
+                    <form>
+                      <input type="text" placeholder="First Name" />
+                    </form>
 
-                    <Divider />
+                    <Button variant="contained">Confirm and pay</Button>
                   </Grid>
                   <Grid item xs={12} md={4}>
                     <Card>
                       <Typography variant="h5">Reserve</Typography>
-                      <Button
-                        variant="contained"
-                        component={Link}
-                        to="/reserve"
-                      >
-                        Reserve
-                      </Button>
+                      alsdkjfdsaf
                     </Card>
                   </Grid>
                 </Grid>
