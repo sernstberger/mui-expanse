@@ -8,6 +8,7 @@ import {
   Stack,
 } from '@mui/material';
 import { Main } from '../Main';
+import { Form } from '@expanse/form';
 
 export function Reserve() {
   return (
@@ -27,6 +28,8 @@ export function Reserve() {
             <form>
               <input type="text" placeholder="First Name" />
             </form>
+
+            <Form />
 
             <Button variant="contained">Confirm and pay</Button>
           </Grid>

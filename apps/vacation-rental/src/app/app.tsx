@@ -62,9 +62,7 @@ export function App() {
 
         <Route index element={<Home />} />
         <Route path="listing" element={<Listing />} />
-
         <Route path="reserve" element={<Reserve />} />
-
         <Route path="*" element={<div>nope</div>} />
       </Routes>
 
